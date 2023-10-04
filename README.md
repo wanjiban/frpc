@@ -2,8 +2,8 @@
 ## 项目简介
 基于 [fatedier/frp](https://github.com/fatedier/frp) 原版 frp 内网穿透客户端 frpc 的一键安装卸载脚本和 docker 镜像.支持群晖NAS,Linux 服务器和 docker 等多种环境安装部署.
 
-- GitHub [stilleshan/frpc](https://github.com/stilleshan/frpc)
-- Docker [stilleshan/frpc](https://hub.docker.com/r/stilleshan/frpc)
+- GitHub [wanjiban/frpc](https://github.com/wanjiban/frpc)
+- Docker [wanjiban/frpc](https://hub.docker.com/r/wanjiban/frpc)
 > *docker image support for X86 and ARM*
 
 ## 更新
@@ -33,9 +33,9 @@
 
 安装
 ```shell
-wget https://raw.githubusercontent.com/stilleshan/frpc/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
+wget https://raw.githubusercontent.com/wanjiban/frpc/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
 # 以下为国内镜像
-wget https://github.ioiox.com/stilleshan/frpc/raw/branch/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
+wget https://github.ioiox.com/wanjiban/frpc/raw/branch/master/frpc_linux_install.sh && chmod +x frpc_linux_install.sh && ./frpc_linux_install.sh
 ```
 
 使用
@@ -48,9 +48,9 @@ sudo systemctl restart frpc
 
 卸载
 ```shell
-wget https://raw.githubusercontent.com/stilleshan/frpc/master/frpc_linux_uninstall.sh && chmod +x frpc_linux_uninstall.sh && ./frpc_linux_uninstall.sh
+wget https://raw.githubusercontent.com/wanjiban/frpc/master/frpc_linux_uninstall.sh && chmod +x frpc_linux_uninstall.sh && ./frpc_linux_uninstall.sh
 # 以下为国内镜像
-wget https://github.ioiox.com/stilleshan/frpc/raw/branch/master/frpc_linux_uninstall.sh && chmod +x frpc_linux_uninstall.sh && ./frpc_linux_uninstall.sh
+wget https://github.ioiox.com/wanjiban/frpc/raw/branch/master/frpc_linux_uninstall.sh && chmod +x frpc_linux_uninstall.sh && ./frpc_linux_uninstall.sh
 ```
 
 ### 4. Linux 服务器 docker 安装
@@ -58,9 +58,9 @@ wget https://github.ioiox.com/stilleshan/frpc/raw/branch/master/frpc_linux_unins
 
 **git clone** 本仓库,并正确配置 **frpc.ini** 文件.
 ```shell
-git clone https://github.com/stilleshan/frpc
+git clone https://github.com/wanjiban/frpc
 # git clone 本仓库镜像
-git clone https://github.ioiox.com/stilleshan/frpc
+git clone https://github.ioiox.com/wanjiban/frpc
 # 国内镜像
 vi /root/frpc/frpc.ini
 # 配置 frpc.ini 文件
@@ -68,7 +68,7 @@ vi /root/frpc/frpc.ini
 
 执行以下命令启动服务
 ```shell
-docker run -d --name=frpc --restart=always -v /root/frpc/frpc.ini:/frp/frpc.ini stilleshan/frpc
+docker run -d --name=frpc --restart=always -v /root/frpc/frpc.ini:/frp/frpc.ini wanjiban/frpc
 ```
 > 以上命令 -v 挂载的目录是以 git clone 本仓库为例,也可以在任意位置手动创建 frpc.ini 文件,并修改命令中的挂载路径.
 
@@ -82,8 +82,8 @@ docker restart frpc
 
 ## 链接
 - Blog [www.ioiox.com](https://www.ioiox.com)
-- GitHub [stilleshan/frpc](https://github.com/stilleshan/frpc)
-- Docker Hub [stilleshan/frpc](https://hub.docker.com/r/stilleshan/frpc)
+- GitHub [wanjiban/frpc](https://github.com/wanjiban/frpc)
+- Docker Hub [wanjiban/frpc](https://hub.docker.com/r/wanjiban/frpc)
 - Docker [docker.ioiox.com](https://docker.ioiox.com)
 - 原版frp项目 [fatedier/frp](https://github.com/fatedier/frp)
 - [群晖NAS使用Docker安装配置frpc内网穿透教程](https://www.ioiox.com/archives/26.html) 
