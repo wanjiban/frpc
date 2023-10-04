@@ -94,15 +94,29 @@ mv ${FILE_NAME}/${FRP_NAME} ${FRP_PATH}
 # configure frpc.ini
 cat >${FRP_PATH}/${FRP_NAME}.ini <<EOF
 [common]
-server_addr = frp.freefrp.net
-server_port = 7000
-token = freefrp.net
+server_addr = to.xx.com
+server_port = 10xx
+token = x
+log_file = /root/frpc/frpc.log
+log_level = info
+log_max_days = 3
+tcp_mux = true
+protocol = tcp
+login_fail_exit = false
+user = 0xxXXX
 
-[web1_${RANDOM}]
-type = http
-local_ip = 192.168.1.2
-local_port = 5000
-custom_domains = yourdomain${RANDOM}.com
+[root-SSH]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+remote_port = 500xx
+
+[XUI-MGT]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 8888
+remote_port = 500xx
+
 EOF
 
 # configure systemd
@@ -124,7 +138,7 @@ EOF
 
 # finish install
 systemctl daemon-reload
-sudo systemctl start ${FRP_NAME}
+# sudo systemctl start ${FRP_NAME}
 sudo systemctl enable ${FRP_NAME}
 
 # clean
@@ -134,5 +148,5 @@ echo -e "${Green}===============================================================
 echo -e "${Green}安装成功,请先修改 ${FRP_NAME}.ini 文件,确保格式及配置正确无误!${Font}"
 echo -e "${Red}vi /usr/local/frp/${FRP_NAME}.ini${Font}"
 echo -e "${Green}修改完毕后执行以下命令重启服务:${Font}"
-echo -e "${Red}sudo systemctl restart ${FRP_NAME}${Font}"
+echo -e "${Red}systemctl restart ${FRP_NAME}${Font}"
 echo -e "${Green}====================================================================${Font}"
