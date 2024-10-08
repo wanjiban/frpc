@@ -90,32 +90,32 @@ tar -zxvf ${FILE_NAME}.tar.gz
 
 mkdir -p ${FRP_PATH}
 mv ${FILE_NAME}/${FRP_NAME} ${FRP_PATH}
-
+mkdir -p /root/frpc/
 # configure frpc.ini
 cat >${FRP_PATH}/${FRP_NAME}.ini <<EOF
 [common]
-server_addr = to.xx.com
-server_port = 10xx
-token = x
+server_addr = sa
+server_port = sp
+token = tk
 log_file = /root/frpc/frpc.log
 log_level = info
 log_max_days = 3
 tcp_mux = true
 protocol = tcp
 login_fail_exit = false
-user = 0xxXXX
+user = usr
 
 [root-SSH]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 22
-remote_port = 500xx
+remote_port = rp1
 
 [XUI-MGT]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 8888
-remote_port = 500xx
+remote_port = rp2
 
 EOF
 
